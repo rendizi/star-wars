@@ -10,7 +10,7 @@ export const Planets = () => {
     const [planets, setPlanets] = React.useState([]);
 
     const handleChange = (e) => {
-        setName(e.target.value);g
+        setName(e.target.value);
     };
 
     const handleSubmit = (e) => {

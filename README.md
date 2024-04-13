@@ -1,70 +1,20 @@
-# Getting Started with Create React App
+**`Star Wars - Task 1`**
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+<h1>Начало, запуск</h1>
 
-## Available Scripts
+Данный веб сайт написан с помощью библиотеки React js. Запустить его можно двумя способами- через npm и docker. Для docker: 
 
-In the project directory, you can run:
+```
+docker-compose build
+docker-compose up
+```
 
-### `npm start`
+Также он хостится на fly.io, можно перейти по ссылки в описании. Возможно он у вас сначала будет долго грузится, я просто экономлю денюкжи и включил отход спать при неактивности, подождите немного.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+<h1>Процесс проектирования и разработки</h1>
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+Запустил Arch Linux, открыл nVIM, начал кодить. Что же еще? Я не фронтэндер и сильно над таском не парился, а бэк сюда подключать нет смысла, когда уже есть нормальная апишка. Был бы у меня таск с новостями я бы распарсил тенгриньюс и расписал бы вам сюда все😍
 
-### `npm test`
+Компромисов в ходе кодинга принял много и самое первое- все таки сделать этот таск. Ошибка моего сайта заключается в том, что он вообще существует xD
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+Фича(не баг!:) ) на сайте- на страницах персонажей/старкрафтс/планет пролистав вниз можно покрутиться среди звезд

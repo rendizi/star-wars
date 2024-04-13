@@ -9,7 +9,7 @@ export const Navbar = () => {
                 <ul tabIndex={0} className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52">
                     <li><a href="/characters">Characters</a></li>
                     <li><a href="/starship">SpaceCrafts</a></li>
-                    <li><a href="/worlds">Worlds</a></li>
+                    <li><a href="/planets">Planets</a></li>
                 </ul>
                 </div>
                 <a className="btn btn-ghost text-xl" href="/">Star Wars</a>
@@ -18,7 +18,7 @@ export const Navbar = () => {
                 <ul className="menu menu-horizontal px-1">
                 <li><a href="/characters">Characters</a></li>
                 <li><a href="/starship">Starship</a></li>
-                <li><a href="/worlds">Worlds</a></li>
+                <li><a href="/planets">Planets</a></li>
                 </ul>
             </div>
             <div className="navbar-end">

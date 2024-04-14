@@ -99,12 +99,12 @@ return (
 
         <dialog id={person.url} className="modal">
             <div className="modal-box p-4 rounded-lg shadow-md flex flex-col items-center">
-            <p><span className="font-semibold"><FontAwesomeIcon icon={faPalette} className="mr-2" />Hair Color:</span> {person.hair_color}</p>
-        <p><span className="font-semibold"><FontAwesomeIcon icon={faPalette} className="mr-2" />Skin Color:</span> {person.skin_color}</p>
-        <p><span className="font-semibold"><FontAwesomeIcon icon={faEye} className="mr-2" />Eye Color:</span> {person.eye_color}</p>
-        <p><span className="font-semibold"><FontAwesomeIcon icon={faBirthdayCake} className="mr-2" />Birth Year:</span> {person.birth_year}</p>
+            <p><span className="font-semibold text-gray-900 dark:text-slate-50"><FontAwesomeIcon icon={faPalette} className="mr-2" />Hair Color:</span> {person.hair_color}</p>
+        <p><span className="font-semibold text-gray-900 dark:text-slate-50"><FontAwesomeIcon icon={faPalette} className="mr-2" />Skin Color:</span> {person.skin_color}</p>
+        <p><span className="font-semibold text-gray-900 dark:text-slate-50"><FontAwesomeIcon icon={faEye} className="mr-2" />Eye Color:</span> {person.eye_color}</p>
+        <p><span className="font-semibold text-gray-900 dark:text-slate-50"><FontAwesomeIcon icon={faBirthdayCake} className="mr-2" />Birth Year:</span> {person.birth_year}</p>
 
-                <div className="mt-4">
+                <div className="mt-4 text-gray-900 dark:text-slate-50">
         <span className="font-semibold"><FontAwesomeIcon icon={faFilm} className="mr-2" />Films:</span>
         <ul className="list-disc pl-4">
             {films.map((film, index) => (
@@ -113,7 +113,7 @@ return (
         </ul>
     </div>
 
-    <div className="mt-4">
+    <div className="mt-4 text-gray-900 dark:text-slate-50">
         <span className="font-semibold"><FontAwesomeIcon icon={faCar} className="mr-2" />Vehicles:</span>
         <ul className="list-disc pl-4">
             {vehicles.map((vehicle, index) => (
@@ -122,7 +122,7 @@ return (
         </ul>
     </div>
 
-    <div className="mt-4">
+    <div className="mt-4 text-gray-900 dark:text-slate-50">
         <span className="font-semibold"><FontAwesomeIcon icon={faSpaceShuttle} className="mr-2" />Starships:</span>
         <ul className="list-disc pl-4">
             {starships.map((starship, index) => (

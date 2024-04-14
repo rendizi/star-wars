@@ -63,11 +63,11 @@ const SpaceCraft = ({ starship }) => {
 
                     <dialog id={starship.url} className="modal">
                         <div className="modal-box p-4 rounded-lg shadow-md flex flex-col items-center">
-                            <p><span className="font-semibold"><FontAwesomeIcon icon={faRuler} className="mr-2" />Length:</span> {starship.length}</p>
-                            <p><span className="font-semibold"><FontAwesomeIcon icon={faIndustry} className="mr-2" />Manufacturer:</span> {starship.manufacturer}</p>
-                            <p><span className="font-semibold"><FontAwesomeIcon icon={faEye} className="mr-2" />Cargo Capacity:</span> {starship.cargo_capacity}</p>
+                            <p className="text-gray-900 dark:text-slate-50"><span className="font-semibold text-gray-900 dark:text-slate-50"><FontAwesomeIcon icon={faRuler} className="mr-2" />Length:</span> {starship.length}</p>
+                            <p className="text-gray-900 dark:text-slate-50"><span className="font-semibold text-gray-900 dark:text-slate-50"><FontAwesomeIcon icon={faIndustry} className="mr-2" />Manufacturer:</span> {starship.manufacturer}</p>
+                            <p className="text-gray-900 dark:text-slate-50"><span className="font-semibold text-gray-900 dark:text-slate-50"><FontAwesomeIcon icon={faEye} className="mr-2" />Cargo Capacity:</span> {starship.cargo_capacity}</p>
 
-                            <div className="mt-4">
+                            <div className="mt-4 text-gray-900 dark:text-slate-50">
                                 <span className="font-semibold"><FontAwesomeIcon icon={faFilm} className="mr-2" />Films:</span>
                                 <ul className="list-disc pl-4">
                                     {films.map((film, index) => (
@@ -75,7 +75,7 @@ const SpaceCraft = ({ starship }) => {
                                     ))}
                                 </ul>
                             </div>
-                            <div className="mt-4">
+                            <div className="mt-4 text-gray-900 dark:text-slate-50">
                                 <span className="font-semibold"><FontAwesomeIcon icon={faUser} className="mr-2" />Pilots:</span> 
                                 <ul className="list-disc pl-4">
                                     {pilots.map((pilot, index) => ( 

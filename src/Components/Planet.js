@@ -60,13 +60,13 @@ const Planet = ({ planet }) => {
 
             <dialog id={planet.url} className="modal">
                 <div className="modal-box p-4 rounded-lg shadow-md flex flex-col items-center">
-                    <p><span className="font-semibold"><FontAwesomeIcon icon={faClockRotateLeft} className="mr-2" />Rotation Period:</span> {planet.rotation_period}</p>
-                    <p><span className="font-semibold"><FontAwesomeIcon icon={faClock} className="mr-2" />Orbital Period:</span> {planet.orbital_period}</p>
-                    <p><span className="font-semibold"><FontAwesomeIcon icon={faRuler} className="mr-2" />Diameter:</span> {planet.diameter}</p>
-                    <p><span className="font-semibold"><FontAwesomeIcon icon={faArrowsDownToLine} className="mr-2" />Gravity:</span> {planet.gravity}</p>
-                    <p><span className="font-semibold"><FontAwesomeIcon icon={faDroplet} className="mr-2" />Surface Water:</span> {planet.surface_water}</p>
+                    <p  className="text-gray-900 dark:text-slate-50"><span className="font-semibold text-gray-900 dark:text-slate-50"><FontAwesomeIcon icon={faClockRotateLeft} className="mr-2" />Rotation Period:</span> {planet.rotation_period}</p>
+                    <p  className="text-gray-900 dark:text-slate-50"><span className="font-semibold text-gray-900 dark:text-slate-50"><FontAwesomeIcon icon={faClock} className="mr-2" />Orbital Period:</span> {planet.orbital_period}</p>
+                    <p className="text-gray-900 dark:text-slate-50"><span className="font-semibold text-gray-900 dark:text-slate-50"><FontAwesomeIcon icon={faRuler} className="mr-2" />Diameter:</span> {planet.diameter}</p>
+                    <p className="text-gray-900 dark:text-slate-50"><span className="font-semibold text-gray-900 dark:text-slate-50"><FontAwesomeIcon icon={faArrowsDownToLine} className="mr-2" />Gravity:</span> {planet.gravity}</p>
+                    <p className="text-gray-900 dark:text-slate-50"><span className="font-semibold text-gray-900 dark:text-slate-50"><FontAwesomeIcon icon={faDroplet} className="mr-2" />Surface Water:</span> {planet.surface_water}</p>
 
-                    <div className="mt-4">
+                    <div className="mt-4 text-gray-900 dark:text-slate-50">
                         <span className="font-semibold"><FontAwesomeIcon icon={faFilm} className="mr-2" />Films:</span>
                         <ul className="list-disc pl-4">
                             {films.map((film, index) => (
@@ -74,7 +74,7 @@ const Planet = ({ planet }) => {
                             ))}
                         </ul>
                     </div>
-                    <div className="mt-4">
+                    <div className="mt-4 text-gray-900 dark:text-slate-50">
                         <span className="font-semibold"><FontAwesomeIcon icon={faUser} className="mr-2" />Residents:</span> 
                         <ul className="list-disc pl-4">
                             {residents.map((resident, index) => ( 

@@ -53,9 +53,9 @@ const SpaceCraft = ({ starship }) => {
                     <div className="text-xl font-medium flex flex-col items-center pb-10">
                         <FontAwesomeIcon icon={faRocket} />
                         <h2 className="text-xl font-semibold mb-2">{starship.name}</h2>
-                        <p className="text-sm"><span className="font-semibold"><FontAwesomeIcon icon={faStar} className="mr-3" />Hyperdrive Rating:</span> {starship.hyperdrive_rating}</p>
-                        <p className="text-sm"><span className="font-semibold"><FontAwesomeIcon icon={faSpaceShuttle} className="mr-3" />Starship Class:</span> {starship.starship_class}</p>
-                        <p className="text-sm"><span className="font-semibold"><FontAwesomeIcon icon={faTachometerAlt} className="mr-3" />Max Atmosphering Speed:</span> {starship.max_atmosphering_speed}</p>
+                        <p className="text-sm text-center"><span className="font-semibold"><FontAwesomeIcon icon={faStar} className="mr-3" />Hyperdrive Rating:</span> {starship.hyperdrive_rating}</p>
+                        <p className="text-sm text-center"><span className="font-semibold"><FontAwesomeIcon icon={faSpaceShuttle} className="mr-3" />Starship Class:</span> {starship.starship_class}</p>
+                        <p className="text-sm text-center"><span className="font-semibold"><FontAwesomeIcon icon={faTachometerAlt} className="mr-3" />Max Atmosphering Speed:</span> {starship.max_atmosphering_speed}</p>
 
                     </div>
 

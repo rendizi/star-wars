@@ -82,11 +82,11 @@ export const Character = (props) => {
             ) : (
                 <>
                     <input type="checkbox" /> 
-                    <div className="text-xl font-medium flex flex-col items-center justify-center pb-10 px-4">  
+                    <div className="text-xl font-medium flex flex-col items-center justify-center pb-10 px-4">
                         <h2 className="text-xl font-semibold mb-2">{person.name}</h2>
-                        <p><span className="font-semibold"><FontAwesomeIcon icon={faRuler} className="mr-2" />Height:</span> {person.height}</p>
-                        <p><span className="font-semibold"><FontAwesomeIcon icon={faBalanceScale} className="mr-2" />Mass:</span> {person.mass}</p>
-                        <p><span className="font-semibold"><FontAwesomeIcon icon={faVenusMars} className="mr-2" />Gender:</span> {person.gender}</p>
+                        <p className="text-center text-sm"><span className="font-semibold"><FontAwesomeIcon icon={faRuler} className="mr-2" />Height:</span> {person.height}</p>
+                        <p className="text-center text-sm"><span className="font-semibold"><FontAwesomeIcon icon={faBalanceScale} className="mr-2" />Mass:</span> {person.mass}</p>
+                        <p className="text-center text-sm"><span className="font-semibold"><FontAwesomeIcon icon={faVenusMars} className="mr-2" />Gender:</span> {person.gender}</p>
                     </div>
 
                     <dialog id={person.url} className="modal">

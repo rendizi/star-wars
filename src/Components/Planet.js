@@ -4,12 +4,19 @@ import {
     faRuler, 
     faEye, 
     faFilm, 
-    faUser 
+    faUser ,
+    faMountain,
+    faTemperatureLow,
+    faClockRotateLeft,
+    faClock,
+    faArrowsDownToLine,
+    faDroplet
 } from '@fortawesome/free-solid-svg-icons';
 
 const Planet = ({ planet }) => {
     const [films, setFilms] = useState([]);
     const [residents, setResidents] = useState([]);
+    const [loading, setLoading] = useState(true);
 
     useEffect(() => {
         const fetchFilms = async () => {
@@ -31,34 +38,33 @@ const Planet = ({ planet }) => {
             setResidents(residentsData);
         };
 
-        fetchFilms();
-        fetchResidents();
+        setLoading(true);
+        Promise.all([fetchFilms(), fetchResidents()]).then(() => setLoading(false));
     }, [planet]);
 
     return (
         <div className="collapse bg-slate-950">
+    {loading ? (
+        <div className="flex justify-center items-center">
+            <span className="loading loading-dots loading-sm"></span>
+        </div>
+    ) : (
+        <div className='collapse'>
             <input type="checkbox" /> 
-            <div className="text-xl font-medium flex flex-col items-center pb-10">
-                <div className="avatar placeholder">
-                    <div className="bg-neutral text-neutral-content rounded-full w-24 flex items-center justify-center">
-                        <span className="text-3xl">{planet.name.charAt(0)}</span>
-                    </div>
-                </div> 
+            <div className="text-xl font-medium flex flex-col items-center justify-center pb-10 px-4">
                 <h2 className="text-xl font-semibold mb-2">{planet.name}</h2>
+                <p className="text-center"><span className="font-semibold"><FontAwesomeIcon icon={faTemperatureLow} className="mr-2" />Climate:</span> {planet.climate}</p>
+                <p className="text-center"><span className="font-semibold"><FontAwesomeIcon icon={faMountain} className="mr-2" />Terrain:</span> {planet.terrain}</p>
+                <p className="text-center"><span className="font-semibold"><FontAwesomeIcon icon={faUser} className="mr-2" />Population:</span> {planet.population}</p>
             </div>
-
-            <button className="btn" onClick={() => {document.getElementById(planet.url).showModal();}}>View more</button>
 
             <dialog id={planet.url} className="modal">
                 <div className="modal-box p-4 rounded-lg shadow-md flex flex-col items-center">
-                    <p><span className="font-semibold"><FontAwesomeIcon icon={faRuler} className="mr-2" />Rotation Period:</span> {planet.rotation_period}</p>
-                    <p><span className="font-semibold"><FontAwesomeIcon icon={faRuler} className="mr-2" />Orbital Period:</span> {planet.orbital_period}</p>
+                    <p><span className="font-semibold"><FontAwesomeIcon icon={faClockRotateLeft} className="mr-2" />Rotation Period:</span> {planet.rotation_period}</p>
+                    <p><span className="font-semibold"><FontAwesomeIcon icon={faClock} className="mr-2" />Orbital Period:</span> {planet.orbital_period}</p>
                     <p><span className="font-semibold"><FontAwesomeIcon icon={faRuler} className="mr-2" />Diameter:</span> {planet.diameter}</p>
-                    <p><span className="font-semibold"><FontAwesomeIcon icon={faEye} className="mr-2" />Climate:</span> {planet.climate}</p>
-                    <p><span className="font-semibold"><FontAwesomeIcon icon={faEye} className="mr-2" />Gravity:</span> {planet.gravity}</p>
-                    <p><span className="font-semibold"><FontAwesomeIcon icon={faEye} className="mr-2" />Terrain:</span> {planet.terrain}</p>
-                    <p><span className="font-semibold"><FontAwesomeIcon icon={faEye} className="mr-2" />Surface Water:</span> {planet.surface_water}</p>
-                    <p><span className="font-semibold"><FontAwesomeIcon icon={faUser} className="mr-2" />Population:</span> {planet.population}</p>
+                    <p><span className="font-semibold"><FontAwesomeIcon icon={faArrowsDownToLine} className="mr-2" />Gravity:</span> {planet.gravity}</p>
+                    <p><span className="font-semibold"><FontAwesomeIcon icon={faDroplet} className="mr-2" />Surface Water:</span> {planet.surface_water}</p>
 
                     <div className="mt-4">
                         <span className="font-semibold"><FontAwesomeIcon icon={faFilm} className="mr-2" />Films:</span>
@@ -82,6 +88,10 @@ const Planet = ({ planet }) => {
                 </form>
             </dialog>
         </div>
+    )}
+    <button className="btn self-end mb-0" onClick={() => {document.getElementById(planet.url).showModal();}}>View more</button>
+</div>
+
     );
 };
 

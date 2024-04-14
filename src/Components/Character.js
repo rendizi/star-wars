@@ -88,10 +88,10 @@ return (
         <span className="loading loading-dots loading-sm"></span>
     </div>
 ) : (
-    <div className='collapse'>
+    <div className='collapse text-slate-50'>
         <input type="checkbox" /> 
-        <div className="text-xl font-medium flex flex-col items-center justify-center pb-10 px-4">
-        <h2 className="text-xl font-semibold mb-2">{person.name}</h2>
+        <div className="text-xl font-medium flex flex-col items-center justify-center pb-10 px-4 ">
+        <h2 className="text-xl font-semibold mb-2 ">{person.name}</h2>
         <p className="text-center text-sm"><span className="font-semibold"><FontAwesomeIcon icon={faRuler} className="mr-2" />Height:</span> {person.height}</p>
         <p className="text-center text-sm"><span className="font-semibold"><FontAwesomeIcon icon={faBalanceScale} className="mr-2" />Mass:</span> {person.mass}</p>
         <p className="text-center text-sm"><span className="font-semibold"><FontAwesomeIcon icon={faVenusMars} className="mr-2" />Gender:</span> {person.gender}</p>

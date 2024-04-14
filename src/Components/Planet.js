@@ -49,8 +49,8 @@ const Planet = ({ planet }) => {
             <span className="loading loading-dots loading-sm"></span>
         </div>
     ) : (
-        <div className='collapse'>
-            <input type="checkbox" /> 
+        <div className='collapse text-slate-50'>
+        <input type="checkbox" /> 
             <div className="text-xl font-medium flex flex-col items-center justify-center pb-10 px-4">
                 <h2 className="text-xl font-semibold mb-2">{planet.name}</h2>
                 <p className="text-center"><span className="font-semibold"><FontAwesomeIcon icon={faTemperatureLow} className="mr-2" />Climate:</span> {planet.climate}</p>

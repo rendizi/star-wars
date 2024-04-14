@@ -43,7 +43,7 @@ const SpaceCraft = ({ starship }) => {
     }, [starship]);
 
     return (
-        <div className="collapse bg-slate-950">
+        <div className="collapse bg-slate-950 text-slate-50">
             {loading ? (
                 <div className="flex justify-center items-center">
                 <span className="loading loading-dots loading-sm"></span>

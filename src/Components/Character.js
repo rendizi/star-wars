@@ -14,134 +14,83 @@ import {
 
 export const Character = (props) => {
     const { person } = props;
-    const [films, setFilms] = useState([]);
-    const [vehicles, setVehicles] = useState([]);
-    const [starships, setStarships] = useState([]);
-    const [loading, setLoading] = useState(true);
-    const [modalLoading, setModalLoading] = useState(false);
-
-    useEffect(() => {
-        const fetchData = async () => {
-            try {
-                setLoading(true);
-
-                const fetchFilms = async () => {
-                    const filmRequests = person.films.map(async (filmUrl) => {
-                        const response = await fetch(filmUrl);
-                        const data = await response.json();
-                        return data.title;
-                    });
-                    const filmsData = await Promise.all(filmRequests);
-                    setFilms(filmsData);
-                };
-
-                const fetchVehiclesAndStarships = async () => {
-                    const vehicleRequests = person.vehicles.map(async (vehicleUrl) => {
-                        const response = await fetch(vehicleUrl);
-                        const data = await response.json();
-                        return data.name;
-                    });
-                    const starshipRequests = person.starships.map(async (starshipUrl) => {
-                        const response = await fetch(starshipUrl);
-                        const data = await response.json();
-                        return data.name;
-                    });
-
-                    const vehiclesData = await Promise.all(vehicleRequests);
-                    const starshipsData = await Promise.all(starshipRequests);
-
-                    setVehicles(vehiclesData);
-                    setStarships(starshipsData);
-                };
-
-                await Promise.all([fetchFilms(), fetchVehiclesAndStarships()]);
-            } catch (error) {
-                console.error('Error fetching data:', error);
-            } finally {
-                setLoading(false);
-            }
-        };
-
-        fetchData();
-    }, [person]);
+    const [loading, setLoading] = useState(false);
+    const [info, setInfo] = useState(null);
 
     const handleModalOpen = () => {
-        setModalLoading(true);
-        document.getElementById(person.url).showModal();
-        setTimeout(() => {
-            setModalLoading(false);
-        }, 1000); 
+        const modal = document.getElementById(person.url);
+        modal.showModal()
+        if (modal) {
+            modal.showModal(); 
+            setLoading(true); 
+            fetchPersonData(); 
+        }
     };
+    
 
+    const fetchPersonData = async () => {
+        try {
+            setLoading(true);
+            const response = await fetch(person.url);
+            const data = await response.json();
+    
+            const homeworldResponse = await fetch(data.result.properties.homeworld);
+            const homeworldData = await homeworldResponse.json();
 
-   
+            setInfo({
+                ...data.result.properties,
+                homeworld: homeworldData.result.properties.name
+            });
+        } catch (error) {
+            console.error('Error fetching person data:', error);
+        } finally {
+            setLoading(false);
+        }
+    };
+    
 
-          
-
-        //<div>
-        
-
-return (
-    <div className="collapse bg-slate-950">
-{loading ? (
-    <div className="flex justify-center items-center">
-        <span className="loading loading-dots loading-sm"></span>
-    </div>
-) : (
-    <div className='collapse text-slate-50'>
-        <input type="checkbox" /> 
-        <div className="text-xl font-medium flex flex-col items-center justify-center pb-10 px-4 ">
-        <h2 className="text-xl font-semibold mb-2 ">{person.name}</h2>
-        <p className="text-center text-sm"><span className="font-semibold"><FontAwesomeIcon icon={faRuler} className="mr-2" />Height:</span> {person.height}</p>
-        <p className="text-center text-sm"><span className="font-semibold"><FontAwesomeIcon icon={faBalanceScale} className="mr-2" />Mass:</span> {person.mass}</p>
-        <p className="text-center text-sm"><span className="font-semibold"><FontAwesomeIcon icon={faVenusMars} className="mr-2" />Gender:</span> {person.gender}</p>
-        </div>
-
-        <dialog id={person.url} className="modal">
-            <div className="modal-box p-4 rounded-lg shadow-md flex flex-col items-center">
-            <p><span className="font-semibold text-gray-900 dark:text-slate-50"><FontAwesomeIcon icon={faPalette} className="mr-2" />Hair Color:</span> {person.hair_color}</p>
-        <p><span className="font-semibold text-gray-900 dark:text-slate-50"><FontAwesomeIcon icon={faPalette} className="mr-2" />Skin Color:</span> {person.skin_color}</p>
-        <p><span className="font-semibold text-gray-900 dark:text-slate-50"><FontAwesomeIcon icon={faEye} className="mr-2" />Eye Color:</span> {person.eye_color}</p>
-        <p><span className="font-semibold text-gray-900 dark:text-slate-50"><FontAwesomeIcon icon={faBirthdayCake} className="mr-2" />Birth Year:</span> {person.birth_year}</p>
-
-                <div className="mt-4 text-gray-900 dark:text-slate-50">
-        <span className="font-semibold"><FontAwesomeIcon icon={faFilm} className="mr-2" />Films:</span>
-        <ul className="list-disc pl-4">
-            {films.map((film, index) => (
-                <li key={index}>{film}</li>
-            ))}
-        </ul>
-    </div>
-
-    <div className="mt-4 text-gray-900 dark:text-slate-50">
-        <span className="font-semibold"><FontAwesomeIcon icon={faCar} className="mr-2" />Vehicles:</span>
-        <ul className="list-disc pl-4">
-            {vehicles.map((vehicle, index) => (
-                <li key={index}>{vehicle}</li>
-            ))}
-        </ul>
-    </div>
-
-    <div className="mt-4 text-gray-900 dark:text-slate-50">
-        <span className="font-semibold"><FontAwesomeIcon icon={faSpaceShuttle} className="mr-2" />Starships:</span>
-        <ul className="list-disc pl-4">
-            {starships.map((starship, index) => (
-                <li key={index}>{starship}</li>
-            ))}
-        </ul>
-    </div>
+    return (
+        <div className="collapse bg-slate-950">
+            <div className='collapse text-slate-50'>
+                <input type="checkbox" /> 
+                <div className="text-xl font-medium flex flex-col items-center justify-center pb-10 px-4">
+                    <h2 className="text-xl font-semibold mb-2">{person.name}</h2>
+                </div>
+                    
+                <dialog id={person.url} className="modal">
+                    <div className="modal-box p-4 rounded-lg shadow-md flex flex-col items-center">
+                        {loading ? (
+                            <div className="flex justify-center items-center">
+                                <span className="loading loading-dots loading-sm"></span>
+                            </div>
+                        ) : (
+                            <>
+                                {info && (
+                                    <>
+                                        <p><span className="font-semibold text-gray-900 dark:text-slate-50"><FontAwesomeIcon icon={faPalette} className="mr-2" />Hair Color:</span> {info.hair_color}</p>
+                                        <p><span className="font-semibold text-gray-900 dark:text-slate-50"><FontAwesomeIcon icon={faPalette} className="mr-2" />Skin Color:</span> {info.skin_color}</p>
+                                        <p><span className="font-semibold text-gray-900 dark:text-slate-50"><FontAwesomeIcon icon={faEye} className="mr-2" />Eye Color:</span> {info.eye_color}</p>
+                                        <p><span className="font-semibold text-gray-900 dark:text-slate-50"><FontAwesomeIcon icon={faBirthdayCake} className="mr-2" />Birth Year:</span> {info.birth_year}</p>
+                                        <div className="mt-4 text-gray-900 dark:text-slate-50">
+                                            <span className="font-semibold"><FontAwesomeIcon icon={faFilm} className="mr-2" />Home:</span>
+                                            <ul className="list-disc pl-4">
+                                                <li>{info.homeworld}</li>
+                                            </ul>
+                                        </div>
+                                    </>
+                                )}
+                            </>
+                        )}
+                    </div>
+                    <form method="dialog" className="modal-backdrop">
+                        <button>close</button>
+                    </form>
+                </dialog>
             </div>
-            <form method="dialog" className="modal-backdrop">
-                <button>close</button>
-            </form>
-        </dialog>
-    </div>
-)}
-<button className="btn self-end mb-0" onClick={() => {document.getElementById(person.url).showModal();}}>View more</button>
-</div>
-
-);
-
-};
+            <button className="btn self-end mb-0" onClick={handleModalOpen}>View more</button>
+        </div>
+    );
+    
+}
 
 export default Character;

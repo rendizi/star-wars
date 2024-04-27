@@ -18,7 +18,7 @@ export const Charecters = () => {
         e.preventDefault();
         setPage(1)
         setSearch(true)
-        fetch(`https://swapi.dev/api/people/?search=${name}`)
+        fetch(`https://swapi.tech/api/people/?name=${name}`)
             .then(response => {
                 if (!response.ok) {
                     throw new Error('Network response was not ok');
@@ -26,7 +26,7 @@ export const Charecters = () => {
                 return response.json();
             })
             .then(data => {
-                    setPeople(data.results)
+                    setPeople(data.result)
             })
             .catch(error => {
                 console.error('There was a problem with the fetch operation:', error);
@@ -36,20 +36,23 @@ export const Charecters = () => {
     }
 
     const [people, setPeople] = React.useState([]);
-
     React.useEffect(() => {
       async function fetchPeople() {
         try {
-          const response = await fetch(`https://swapi.dev/api/people/?search=&page=${page}`);
+          const response = await fetch(`https://swapi.tech/api/people/?page=${page}&limit=12`);
           const data = await response.json();
-          setPeople(data.results);
+          console.log(data)
+    
+          setPeople(data.results)
         } catch (error) {
           console.error('Error fetching data:', error);
         }
       }
-  
+    
       fetchPeople();
     }, [page]);
+    
+    
     const handleCloseModal = () => {
    }
 

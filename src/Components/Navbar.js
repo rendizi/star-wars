@@ -1,5 +1,6 @@
 export const Navbar = () => {
     return (
+        <>
         <div className="navbar bg-base-100">
             <div className="navbar-start">
                 <div className="dropdown">
@@ -25,5 +26,6 @@ export const Navbar = () => {
                 <a className="btn" href="https://github.com/rendizi/star-wars" target="_blank">Source code</a>
             </div>
         </div>
+        </>
     )
 }

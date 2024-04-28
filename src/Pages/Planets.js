@@ -17,7 +17,7 @@ export const Planets = () => {
         e.preventDefault();
         setPage(1);
         setSearch(true);
-        fetch(`https://swapi.dev/api/planets/?search=${name}`)
+        fetch(`https://swapi.tech/api/planets/?name=${name}&limit=12`)
             .then(response => {
                 if (!response.ok) {
                     throw new Error('Network response was not ok');
@@ -25,7 +25,12 @@ export const Planets = () => {
                 return response.json();
             })
             .then(data => {
-                setPlanets(data.results);
+                const transformedData = data.result.map(item => ({
+                    url: item.properties.url,
+                    name: item.properties.name
+                  }));
+                  const limitedTransformedData = transformedData.slice(0, 12);
+                setPlanets(limitedTransformedData);
             })
             .catch(error => {
                 console.error('There was a problem with the fetch operation:', error);
@@ -35,8 +40,9 @@ export const Planets = () => {
     React.useEffect(() => {
         async function fetchPlanets() {
             try {
-                const response = await fetch(`https://swapi.dev/api/planets/?search=&page=${page}`);
+                const response = await fetch(`https://swapi.tech/api/planets/?search=&page=${page}&limit=12`);
                 const data = await response.json();
+                console.log(data.results)
                 setPlanets(data.results);
             } catch (error) {
                 console.error('Error fetching data:', error);
